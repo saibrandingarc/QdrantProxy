@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
 
 app.post("/qdrant/search", async (req, res) => {
   try {
+    return process.env.OPENAI_API_KEY
     const {
       query_text,
       limit = 5,
