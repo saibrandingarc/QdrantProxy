@@ -39,7 +39,7 @@ app.post("/qdrant/search", async (req, res) => {
     if (!embResponse.ok) {
       const errText = await embResponse.text();
       console.error("OpenAI embeddings error:", errText);
-      return res.status(500).json({ error: "Failed to generate embedding" });
+      return res.status(500).json({ error: "Failed to generate embedding: " + errText });
     }
 
     const embData = await embResponse.json();
