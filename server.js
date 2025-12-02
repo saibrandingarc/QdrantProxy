@@ -53,7 +53,7 @@ app.post("/qdrant/search", async (req, res) => {
     };
 
     const qdrantResponse = await fetch(
-      "https://5fb1afda-8f24-4b0a-bc27-3e72849a8024.us-east4-0.gcp.cloud.qdrant.io/collections/deliverables1/points/search",
+      "https://5fb1afda-8f24-4b0a-bc27-3e72849a8024.us-east4-0.gcp.cloud.qdrant.io/collections/my_collection/points/search",
       {
         method: "POST",
         headers: {
