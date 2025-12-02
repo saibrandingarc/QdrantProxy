@@ -49,7 +49,8 @@ app.post("/qdrant/search", async (req, res) => {
     const qdrantBody = {
       vector,
       limit,
-      with_payload
+      with_payload,
+      vector_name: "text-embedding-3-small"
     };
 
     const qdrantResponse = await fetch(
