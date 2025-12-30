@@ -29,6 +29,10 @@ export default async function handler(req, res) {
       if (!vector) {
         return res.status(500).json({ error: "No embedding returned from OpenAI" });
       }
+
+      const qdrantVector = Array.isArray(vector)
+        ? vector.filter((v) => typeof v === "number" && isFinite(v))
+        : [];
   
       // 2️⃣ Search Qdrant
       const qdrantResponse = await fetch(
@@ -43,7 +47,7 @@ export default async function handler(req, res) {
             limit,
             with_payload,
             vector: {
-              "text-embedding-3-small": vector  // ✅ use vector name as key
+              "text-embedding-3-small": qdrantVector  // ✅ use vector name as key
             }
           }),
         }
