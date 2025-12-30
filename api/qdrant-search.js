@@ -44,11 +44,12 @@ export default async function handler(req, res) {
             "api-key": process.env.QDRANT_API_KEY,
           },
           body: JSON.stringify({
-            limit,
-            with_payload,
-            vector: {
-              "text-embedding-3-small": qdrantVector  // ✅ use vector name as key
-            }
+            "vector": {
+              "name": "text-embedding-3-small",
+              "vector": qdrantVector
+            },
+            "limit": limit,
+            "with_payload": with_payload
           }),
         }
       );
