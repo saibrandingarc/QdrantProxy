@@ -40,10 +40,10 @@ export default async function handler(req, res) {
             "api-key": process.env.QDRANT_API_KEY,
           },
           body: JSON.stringify({
+            vector_name: "text-embedding-3-small",
             vector,
             limit,
-            with_payload,
-            vector_name: "text-embedding-3-small",
+            with_payload
           }),
         }
       );
